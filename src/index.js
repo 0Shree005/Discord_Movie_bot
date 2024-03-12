@@ -15,15 +15,18 @@ client.on("ready", (c) => {
     console.log(`${c.user.tag} is online`)
 })
 
-client.on('messageCreate', (message) => {
-
-    if(message.author.bot){
+client.on('interactionCreate', (interaction) => {
+    if (!interaction.isChatInputCommand()) 
         return;
+
+    if (interaction.commandName === 'hey'){
+        interaction.reply('Hey!')
+    }
+    if (interaction.commandName === 'ping'){
+        interaction.reply('Pong!')
     }
 
-    // if (message.content === 'hello') {
-        message.reply(`Wassup ${message.author.globalName}`)
-    // }
+
 })
 
 client.login(process.env.Discord_token)
