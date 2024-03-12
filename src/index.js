@@ -19,12 +19,13 @@ client.on('interactionCreate', (interaction) => {
     if (!interaction.isChatInputCommand()) 
         return;
 
-    if (interaction.commandName === 'hey'){
-        interaction.reply('Hey!')
+    if (interaction.commandName === 'add'){
+        const num1 = interaction.options.get('first_number')?.value;
+        const num2 = interaction.options.get('second_number')?.value;
+        
+        interaction.reply(`The Sum of the numbers is ${num1 + num2}`);  
     }
-    if (interaction.commandName === 'ping'){
-        interaction.reply('Pong!')
-    }
+
 
 
 })
